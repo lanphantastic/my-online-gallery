@@ -1,9 +1,7 @@
-import Layout from '../components/Layout';
-
 export default function SellPage() {
   return (
-    <Layout>
+    <div>
       <p>sell page!</p>
-    </Layout>
+    </div>
   );
 }
