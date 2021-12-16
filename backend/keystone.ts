@@ -6,6 +6,7 @@ import {
   statelessSessions,
 } from '@keystone-next/keystone/session'
 import { User } from './schemas/User'
+import { Product } from './schemas/Product'
 
 const databaseURL =
   process.env.DATABASE_URL || 'mongodb://localhost/online-gallery-cluster'
@@ -41,13 +42,11 @@ export default withAuth(
     },
     lists: createSchema({
       User,
+      Product,
     }),
     ui: {
       // Show the UI only for people who pass this text
-      isAccessAllowed: ({ session }) => {
-        console.log(session)
-        return !!session?.data
-      },
+      isAccessAllowed: ({ session }) => !!session?.data,
     },
     session: withItemData(statelessSessions(sessionConfig), {
       User: 'id name email',
