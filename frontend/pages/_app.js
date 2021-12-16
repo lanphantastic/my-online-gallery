@@ -24,7 +24,7 @@ MyApp.getInitialProps = async function ({ Component, context }) {
   if (Component.getInitialProps) {
     pageProps = await Component.getInitialProps(context);
   }
-  pageProps.query = context.query;
+  pageProps.query = context?.query;
   return { pageProps };
 };
 
